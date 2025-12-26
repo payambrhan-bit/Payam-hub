@@ -1,4 +1,3 @@
-
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 local Window = Rayfield:CreateWindow({
@@ -124,14 +123,10 @@ ComboTab:CreateToggle({
                 local rootPart = character:FindFirstChild("HumanoidRootPart")
                 
                 if humanoid and rootPart then
-                    -- Get movement direction from humanoid
                     local moveDirection = humanoid.MoveDirection
                     
                     if moveDirection.Magnitude > 0 then
-                        -- Teleport to movement direction with distance
                         local newPosition = rootPart.Position + (moveDirection * tpWalkDistance)
-                        
-                        -- Create new CFrame with rotation
                         local newCFrame = CFrame.new(newPosition) * CFrame.Angles(
                             rootPart.CFrame:ToEulerAnglesXYZ()
                         )
@@ -143,14 +138,12 @@ ComboTab:CreateToggle({
         end
         
         if tpWalkEnabled then
-            -- Enable TPWalk Loop
             tpWalkConnection = game:GetService("RunService").Heartbeat:Connect(function()
                 if tpWalkEnabled then
                     teleportWalk()
                 end
             end)
             
-            -- Connect to character added for respawn
             game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
                 task.wait(1)
                 if tpWalkEnabled then
@@ -158,26 +151,10 @@ ComboTab:CreateToggle({
                 end
             end)
             
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "TPWalk",
-                    Content = "TPWalk activated! Distance: " .. tpWalkDistance,
-                    Duration = 3,
-                })
-            end
-            
         else
             if tpWalkConnection then
                 tpWalkConnection:Disconnect()
                 tpWalkConnection = nil
-            end
-            
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "TPWalk",
-                    Content = "TPWalk disabled!",
-                    Duration = 3,
-                })
             end
         end
     end
@@ -191,15 +168,6 @@ ComboTab:CreateSlider({
     CurrentValue = 1,
     Callback = function(value)
         tpWalkDistance = value
-        if tpWalkEnabled then
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "TPWalk",
-                    Content = "TPWalk distance updated to: " .. value,
-                    Duration = 2,
-                })
-            end
-        end
     end
 })
 
@@ -245,36 +213,14 @@ ComboTab:CreateToggle({
             game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
                 task.wait(1)
                 if slowTPWalkEnabled then
-                    if Rayfield and Rayfield.Notify then
-                        Rayfield:Notify({
-                            Title = "Slow TPWalk",
-                            Content = "Slow TPWalk reactivated for new character!",
-                            Duration = 3,
-                        })
-                    end
+                    slowTeleportWalk()
                 end
             end)
-            
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "Slow TPWalk",
-                    Content = "Slow TPWalk activated! Speed: " .. slowTPWalkDistance,
-                    Duration = 3,
-                })
-            end
             
         else
             if slowTPWalkConnection then
                 slowTPWalkConnection:Disconnect()
                 slowTPWalkConnection = nil
-            end
-            
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "Slow TPWalk",
-                    Content = "Slow TPWalk disabled!",
-                    Duration = 3,
-                })
             end
         end
     end
@@ -288,15 +234,6 @@ ComboTab:CreateSlider({
     CurrentValue = 0.3,
     Callback = function(value)
         slowTPWalkDistance = value
-        if slowTPWalkEnabled then
-            if Rayfield and Rayfield.Notify then
-                Rayfield:Notify({
-                    Title = "Slow TPWalk",
-                    Content = "Slow TPWalk distance updated to: " .. string.format("%.1f", value),
-                    Duration = 2,
-                })
-            end
-        end
     end
 })
 
@@ -3232,304 +3169,196 @@ StrongTab:CreateButton({
     end
 })
 
--- New Movement Scripts Section
-StrongTab:CreateSection("Movement Scripts (23)")
-
--- Movement Script 1
-StrongTab:CreateButton({
-    Name = "Movement Script #1",
+-- More Info Button
+MainTab:CreateButton({
+    Name = "More Info",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/KoalaBear27/Movement-Script/main/Script.lua"))()
+        -- Copy link to clipboard
+        local link = "https://sites.google.com/view/payam-view/home?authuser=0"
+        setclipboard(link)
+        
         Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #1 loaded!",
+            Title = "More Info",
+            Content = "Link copied to clipboard! Open in browser: " .. link,
+            Duration = 6,
+        })
+    end
+})
+
+-- Button to load the old Payam Hub (without notification)
+MainTab:CreateButton({
+    Name = "Load Old Payam Hub",
+    Callback = function()
+        -- Load the old Payam Hub script silently
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/payambrhan-bit/payam-hub-and-win-ui-v11/refs/heads/main/win%20ui%20payam"))()
+        -- No notification will be shown
+    end
+})
+
+
+
+-- Natural Disaster Survival Script Tab
+local NDSTab = Window:CreateTab("Natural Disaster Survival Script", 7698866393)
+
+-- Create Section for Scripts
+NDSTab:CreateSection("Natural Disaster Survival Scripts")
+
+-- 1. No Fall Damage
+NDSTab:CreateButton({
+    Name = "No Fall Damage✅",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/kNz7zq7f"))()
+    end
+})
+
+-- 2. Seven7 Hub
+NDSTab:CreateButton({
+    Name = "🏝️ Seven7 Hub 🏝️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Seven7-lua/Roblox/refs/heads/main/Scripts/Games/Natural-Disaster-Survival.lua"))()
+        Rayfield:Notify({
+            Title = "Seven7 Hub",
+            Content = "Seven7 Hub loaded!",
             Duration = 3
         })
     end
 })
 
--- Movement Script 2
-StrongTab:CreateButton({
-    Name = "Movement Script #2",
+-- 3. Six Hub
+NDSTab:CreateButton({
+    Name = "🏝️ Six Hub 🏝️",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/MovementScript/main/MovementScript.lua"))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ySixxNz/Natural-Desastre/Six-Hub/NaturalDisaster'))()
         Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #2 loaded!",
+            Title = "Six Hub",
+            Content = "Key Is: sixhub_key2024nicelol",
+            Duration = 15
+        })
+    end
+})
+
+-- 4. YokaiScript Hub
+NDSTab:CreateButton({
+    Name = "🏝️ YokaiScript Hub 🏝️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Codexxscripts/Script/refs/heads/main/Protected_7867058958573066.lua.txt"))()
+        Rayfield:Notify({
+            Title = "YokaiScript Hub",
+            Content = "YokaiScript Hub loaded!",
             Duration = 3
         })
     end
 })
 
--- Movement Script 3
-StrongTab:CreateButton({
-    Name = "Movement Script #3",
+-- 6. Nds Hub
+NDSTab:CreateButton({
+    Name = "🏝️ Nds Hub 🏝️",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Kitzoon/Roblox-Scripts/main/MovementScript.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/KaterHub-Inc/NaturalDisasterSurvival/refs/heads/main/main.lua"))()
         Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #3 loaded!",
+            Title = "Nds Hub",
+            Content = "Nds Hub loaded!",
             Duration = 3
         })
     end
 })
 
--- Movement Script 4
-StrongTab:CreateButton({
-    Name = "Movement Script #4",
+-- Super Ring Parts Universal Tab
+local SuperRingTab = Window:CreateTab("Super Ring Parts Universal", 87649128200629)
+
+-- Create Section for Super Ring Parts
+SuperRingTab:CreateSection("Super Ring Parts Scripts")
+
+-- 1. Part Up Button
+SuperRingTab:CreateButton({
+    Name = "Part Up",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptHubsHub/Movement-Hub/main/script.lua"))()
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #4 loaded!",
-            Duration = 3
-        })
+        loadstring(game:HttpGet("https://pastebin.com/raw/96XzjEiK"))()
     end
 })
 
--- Movement Script 5
-StrongTab:CreateButton({
-    Name = "Movement Script #5",
+-- 2. Control Part
+SuperRingTab:CreateButton({
+    Name = "Control Part",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/ABCD1234"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #5 loaded!",
-            Duration = 3
-        })
+        pcall(function() 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hm5650/PartController/refs/heads/main/PartController.lua", true))() 
+        end)
     end
 })
 
--- Movement Script 6
-StrongTab:CreateButton({
-    Name = "Movement Script #6",
+-- 3. Super Ring (Mobile No Lag)
+SuperRingTab:CreateButton({
+    Name = "Super Ring (Mobile No Lag)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/EFGH5678"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #6 loaded!",
-            Duration = 3
-        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/chesslovers69/Super-ring-parts-v6/refs/heads/main/Bylukaslol"))()
     end
 })
 
--- Movement Script 7
-StrongTab:CreateButton({
-    Name = "Movement Script #7",
+-- 4. Super Ring Projeto
+SuperRingTab:CreateButton({
+    Name = "Super Ring Projeto",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/IJKL9012"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #7 loaded!",
-            Duration = 3
-        })
+        loadstring(game:HttpGet("https://pastebin.com/raw/ycFj2w5D"))()
     end
 })
 
--- Movement Script 8
-StrongTab:CreateButton({
-    Name = "Movement Script #8",
+-- 5. Super Ring (Disaster Super Ring V4)
+SuperRingTab:CreateButton({
+    Name = "Super Ring (Disaster Super Ring V4)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/MNOP3456"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #8 loaded!",
-            Duration = 3
-        })
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Natural-Disaster-Survival-Super-ring-V4-24296"))()
     end
 })
 
--- Movement Script 9
-StrongTab:CreateButton({
-    Name = "Movement Script #9",
+-- Blox Fruit Tab
+local BloxFruitTab = Window:CreateTab("Blox Fruit Script", 6033528834) -- Using Blox Fruit icon ID
+
+-- Create information paragraph
+BloxFruitTab:CreateParagraph({
+    Title = "Blox Fruit Script Section",
+    Content = "This section is dedicated to copying Blox Fruit scripts. Click any button to copy the script to clipboard. Then go to another game, paste in your executor, load it, and finally join Blox Fruit."
+})
+
+-- Create warning section
+BloxFruitTab:CreateSection("⚠️ IMPORTANT WARNING ⚠️")
+
+BloxFruitTab:CreateParagraph({
+    Title = "Anti-Chat Protection System",
+    Content = "BLACKLISTED IN BLOX FRUIT: Do NOT load scripts directly in Blox Fruit game! You will get banned.\n\nSAFE METHOD:\n1. Join any game but be careful not to join Blox Fruit\n2. After joining the game, go to Payam Hub in the Blox Fruit Script section\n3. Copy the script you want\n4. Then join Blox Fruit but be careful not to load Payam Hub in Blox Fruit"
+})
+
+-- Create scripts section
+BloxFruitTab:CreateSection("Blox Fruit Scripts (Copy to Clipboard)")
+
+-- Script 1: Trial Script
+BloxFruitTab:CreateButton({
+    Name = "night hub (copy)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/QRST7890"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #9 loaded!",
-            Duration = 3
-        })
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/WhiteX1208/Scripts/refs/heads/main/Trial.luau"))()')
     end
 })
 
--- Movement Script 10
-StrongTab:CreateButton({
-    Name = "Movement Script #10",
+-- Script 2: Zee Hub
+BloxFruitTab:CreateButton({
+    Name = "Zee Hub (copy)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/UVWX1234"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #10 loaded!",
-            Duration = 3
-        })
+        setclipboard('loadstring(game:HttpGet("https://zuwz.me/Ls-Zee-Hub"))()')
     end
 })
 
--- Movement Script 11
-StrongTab:CreateButton({
-    Name = "Movement Script #11",
+-- Script 3: Blue X Hub
+BloxFruitTab:CreateButton({
+    Name = "Blue X Hub (copy)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/YZAB5678"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #11 loaded!",
-            Duration = 3
-        })
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))()')
     end
 })
 
--- Movement Script 12
-StrongTab:CreateButton({
-    Name = "Movement Script #12",
+-- Script 4: Hiru Hub
+BloxFruitTab:CreateButton({
+    Name = "Hiru Hub (copy)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/CDEF9012"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #12 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 13
-StrongTab:CreateButton({
-    Name = "Movement Script #13",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/GHIJ3456"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #13 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 14
-StrongTab:CreateButton({
-    Name = "Movement Script #14",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/KLMN7890"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #14 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 15
-StrongTab:CreateButton({
-    Name = "Movement Script #15",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/OPQR1234"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #15 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 16
-StrongTab:CreateButton({
-    Name = "Movement Script #16",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/STUV5678"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #16 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 17
-StrongTab:CreateButton({
-    Name = "Movement Script #17",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/WXYZ9012"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #17 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 18
-StrongTab:CreateButton({
-    Name = "Movement Script #18",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/ABCD3456"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #18 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 19
-StrongTab:CreateButton({
-    Name = "Movement Script #19",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/EFGH7890"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #19 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 20
-StrongTab:CreateButton({
-    Name = "Movement Script #20",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/IJKL1234"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #20 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 21
-StrongTab:CreateButton({
-    Name = "Movement Script #21",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/MNOP5678"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #21 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 22
-StrongTab:CreateButton({
-    Name = "Movement Script #22",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/QRST9012"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #22 loaded!",
-            Duration = 3
-        })
-    end
-})
-
--- Movement Script 23
-StrongTab:CreateButton({
-    Name = "Movement Script #23",
-    Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/UVWX3456"))() -- Example
-        Rayfield:Notify({
-            Title = "Movement Script",
-            Content = "Movement Script #23 loaded!",
-            Duration = 3
-        })
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/HiruKiddo/Source/main/HiruHubFree.lua"))()')
     end
 })
