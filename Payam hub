@@ -3312,7 +3312,7 @@ SuperRingTab:CreateButton({
 })
 
 -- Blox Fruit Tab
-local BloxFruitTab = Window:CreateTab("Blox Fruit Script", 6033528834) -- Using Blox Fruit icon ID
+local BloxFruitTab = Window:CreateTab("Blox Fruit Script", 13322982602) -- Using Blox Fruit icon ID
 
 -- Create information paragraph
 BloxFruitTab:CreateParagraph({
@@ -3360,5 +3360,84 @@ BloxFruitTab:CreateButton({
     Name = "Hiru Hub (copy)",
     Callback = function()
         setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/HiruKiddo/Source/main/HiruHubFree.lua"))()')
+    end
+})
+
+-- Fe Animation Script Tab
+local FeAnimTab = Window:CreateTab("Fe animaton script", "home")
+
+-- 🏆 Bast Animation Section
+FeAnimTab:CreateSection("🏆 Bast Animation")
+
+-- 1. Fe possessed 🏆
+FeAnimTab:CreateButton({
+    Name = "Fe possessed 🏆",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/C2ixw5i9"))()
+        Rayfield:Notify({
+            Title = "Fe Animation",
+            Content = "Fe possessed animation loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- 2. Fe cat 🏆🐈‍⬛
+FeAnimTab:CreateButton({
+    Name = "Fe cat 🏆🐈‍⬛",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
+        Rayfield:Notify({
+            Title = "Fe Animation",
+            Content = "Fe cat animation loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- 3. Fe emote hub 🏆 2500+ emote
+FeAnimTab:CreateButton({
+    Name = "Fe emote hub 🏆 2500+ emote",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
+        Rayfield:Notify({
+            Title = "Fe Animation",
+            Content = "FE Emote Hub with 2500+ emotes loaded!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- All Animation Section
+FeAnimTab:CreateSection("All Animation")
+
+-- 1. Tall Man Script
+FeAnimTab:CreateButton({
+    Name = "Tall Man Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/EBTC8uwZ"))()
+        Rayfield:Notify({
+            Title = "Tall Man Animation",
+            Content = "Tall Man script loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- 2. Sonic Script
+FeAnimTab:CreateButton({
+    Name = "Sonic Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Azizanzz0/FE-R15-Sonic-X-Super/refs/heads/main/Protected%20SonicXSuper.txt"))()
+        Rayfield:Notify({
+            Title = "Sonic Animation",
+            Content = "Sonic X Super animation loaded!",
+            Duration = 5,
+            Image = 6023426926
+        })
     end
 })
