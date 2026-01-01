@@ -3363,15 +3363,14 @@ BloxFruitTab:CreateButton({
     end
 })
 
--- Fe Animation Script Tab
-local FeAnimTab = Window:CreateTab("Fe animaton script", "home")
+local FeAnimTab = Window:CreateTab("Fe Animation R15", 92496295326681) -- Using Animation icon ID
 
 -- 🏆 Bast Animation Section
 FeAnimTab:CreateSection("🏆 Bast Animation")
 
 -- 1. Fe possessed 🏆
 FeAnimTab:CreateButton({
-    Name = "Fe possessed 🏆",
+    Name = "Fe possessed R15 🏆",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/C2ixw5i9"))()
         Rayfield:Notify({
@@ -3385,7 +3384,7 @@ FeAnimTab:CreateButton({
 
 -- 2. Fe cat 🏆🐈‍⬛
 FeAnimTab:CreateButton({
-    Name = "Fe cat 🏆🐈‍⬛",
+    Name = "Fe cat R15 🏆",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/Y1MkBRn3"))()
         Rayfield:Notify({
@@ -3399,7 +3398,7 @@ FeAnimTab:CreateButton({
 
 -- 3. Fe emote hub 🏆 2500+ emote
 FeAnimTab:CreateButton({
-    Name = "Fe emote hub 🏆 2500+ emote",
+    Name = "Fe emote hub R15🏆 2500+ emote",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
         Rayfield:Notify({
@@ -3416,7 +3415,7 @@ FeAnimTab:CreateSection("All Animation")
 
 -- 1. Tall Man Script
 FeAnimTab:CreateButton({
-    Name = "Tall Man Script",
+    Name = "Tall Man Script R15",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/EBTC8uwZ"))()
         Rayfield:Notify({
@@ -3430,7 +3429,7 @@ FeAnimTab:CreateButton({
 
 -- 2. Sonic Script
 FeAnimTab:CreateButton({
-    Name = "Sonic Script",
+    Name = "Sonic Script R15",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Azizanzz0/FE-R15-Sonic-X-Super/refs/heads/main/Protected%20SonicXSuper.txt"))()
         Rayfield:Notify({
@@ -3438,6 +3437,104 @@ FeAnimTab:CreateButton({
             Content = "Sonic X Super animation loaded!",
             Duration = 5,
             Image = 6023426926
+        })
+    end
+})
+
+-- 3. Animation Hub Script
+FeAnimTab:CreateButton({
+    Name = "Animation Hub R15",
+    Callback = function()
+        loadstring(game:HttpGet("https://kbauu.neocities.org/animation-hub"))()
+        Rayfield:Notify({
+            Title = "Animation Hub",
+            Content = "Animation Hub loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- ==================== The Chosen One Tab ====================
+local ChosenOneTab = Window:CreateTab("The Chosen One", 11894923056) -- Using the game icon ID
+
+-- Create information paragraph
+ChosenOneTab:CreateParagraph({
+    Title = "The Chosen One Scripts",
+    Content = "This section contains a collection of scripts specifically for 'The Chosen One' game. These scripts provide various features and enhancements to help you in the game."
+})
+
+-- Create section for scripts
+ChosenOneTab:CreateSection("Available Scripts")
+
+-- Button 1: Bkit Free
+ChosenOneTab:CreateButton({
+    Name = "Bkit Free Script not work any.more",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/1AreYouMental110/Bkit-Script/refs/heads/main/BkitScript.lua"))()
+        Rayfield:Notify({
+            Title = "Bkit Free",
+            Content = "Bkit Free script loaded successfully!",
+            Duration = 5,
+            Image = 11894923056
+        })
+    end
+})
+
+-- Button 2: Mark Hub
+ChosenOneTab:CreateButton({
+    Name = "Mark Hub",
+    Callback = function()
+        loadstring(game:HttpGetAsync("https://mark-hub-h2g9.onrender.com/raw/The-Chosen-One-59c5400f"))()
+        Rayfield:Notify({
+            Title = "Mark Hub",
+            Content = "Mark Hub loaded successfully!",
+            Duration = 5,
+            Image = 11894923056
+        })
+    end
+})
+
+-- Button 3: Adam3mka Script
+ChosenOneTab:CreateButton({
+    Name = "Adam3mka Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Adam3mka/The-chosen-one-lukaku/refs/heads/main/Protected_6361979247750901.txt"))()
+        task.wait(3)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/1AreYouMental110/Bkit-Script/refs/heads/main/BkitScript.lua"))()
+        Rayfield:Notify({
+            Title = "Adam3mka Script",
+            Content = "Adam3mka + Bkit loaded!",
+            Duration = 5,
+            Image = 11894923056
+        })
+    end
+})
+
+-- Button 5: Hyperion Script
+ChosenOneTab:CreateButton({
+    Name = "Hyperion Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Account828282/Hyperion/main/hyperion.lua"))()
+        Rayfield:Notify({
+            Title = "Hyperion",
+            Content = "Hyperion script loaded successfully!",
+            Duration = 5,
+            Image = 11894923056
+        })
+    end
+})
+
+-- Button 6: The Chosen One Extra Stuff
+ChosenOneTab:CreateButton({
+    Name = "The Chosen One Extra Stuff",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/The-Chosen-One-Extra-Stuff-18127"))()
+        Rayfield:Notify({
+            Title = "Extra Stuff",
+            Content = "The Chosen One Extra Stuff loaded!",
+            Duration = 5,
+            Image = 11894923056
         })
     end
 })
