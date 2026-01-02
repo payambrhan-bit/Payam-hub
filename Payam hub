@@ -3538,3 +3538,160 @@ ChosenOneTab:CreateButton({
         })
     end
 })
+
+-- لە دوای بەشی "Spin Control" لە ComboTab
+-- Section بۆ Swim ON/OFF
+ComboTab:CreateSection("Swim Control")
+
+-- لە دوای بەشی "Spin Control" لە ComboTab
+-- Section بۆ Swim ON/OFF
+ComboTab:CreateSection("Swim Control")
+
+-- Swim ON/OFF
+local swimEnabled = false
+local swimConnection
+local originalWalkSpeed
+local originalJumpPower
+local originalState
+
+ComboTab:CreateToggle({
+    Name = "Swim ON/OFF",
+    CurrentValue = false,
+    Callback = function(state)
+        swimEnabled = state
+        
+        local function enableSwim()
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if character then
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                
+                if humanoid then
+                    -- Save original values
+                    if not originalWalkSpeed then
+                        originalWalkSpeed = humanoid.WalkSpeed
+                    end
+                    if not originalJumpPower then
+                        originalJumpPower = humanoid.JumpPower
+                    end
+                    
+                    -- Change to swimming animation
+                    humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+                    
+                    -- Slow down movement for swimming effect
+                    humanoid.WalkSpeed = 12  -- Swimming speed (slower than walking)
+                    humanoid.JumpPower = 0   -- No jumping while swimming
+                    
+                    return true
+                end
+            end
+            return false
+        end
+        
+        local function disableSwim()
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if character then
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                
+                if humanoid then
+                    -- Restore original values
+                    if originalWalkSpeed then
+                        humanoid.WalkSpeed = originalWalkSpeed
+                    end
+                    if originalJumpPower then
+                        humanoid.JumpPower = originalJumpPower
+                    end
+                    
+                    -- Change back to running state
+                    humanoid:ChangeState(Enum.HumanoidStateType.Running)
+                    
+                    return true
+                end
+            end
+            return false
+        end
+        
+        if swimEnabled then
+            -- Enable for current character
+            enableSwim()
+            
+            -- Create swimming loop to keep state
+            swimConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                if swimEnabled then
+                    local player = game.Players.LocalPlayer
+                    local character = player.Character
+                    
+                    if character then
+                        local humanoid = character:FindFirstChildOfClass("Humanoid")
+                        
+                        if humanoid then
+                            -- Force swimming state
+                            humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+                        end
+                    end
+                end
+            end)
+            
+            -- Handle character respawn
+            game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+                if swimEnabled then
+                    task.wait(1)  -- Wait for character to load
+                    enableSwim()
+                end
+            end)
+            
+        else
+            -- Disable swimming
+            disableSwim()
+            
+            -- Disconnect connection
+            if swimConnection then
+                swimConnection:Disconnect()
+                swimConnection = nil
+            end
+        end
+    end
+})
+
+-- Swim Speed Slider (سادە)
+local swimSpeed = 12
+ComboTab:CreateSlider({
+    Name = "Swim Speed",
+    Range = {5, 30},
+    Increment = 1,
+    CurrentValue = 12,
+    Callback = function(value)
+        swimSpeed = value
+        if swimEnabled then
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if character then
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    humanoid.WalkSpeed = swimSpeed
+                end
+            end
+        end
+    end
+})
+
+-- Bypass Chat Tab
+local BypassChatTab = Window:CreateTab("Bypass Chat", "home")  -- Chat bubble icon
+
+-- Create section for bypass chat features
+BypassChatTab:CreateSection("Chat Bypass Features")
+
+-- 1. Main Bypass Chat Script (API Luarmor)
+BypassChatTab:CreateButton({
+    Name = "Load Luarmor Bypass",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/a675d4a69c2e1d8e301a4af260fb719b.lua"))()
+        Rayfield:Notify({
+            Title = "Bypass Chat",
+            Content = "Luarmor bypass chat loaded successfully!",
+            Duration = 5,
+            Image = "message-bubble"
+        })
+    end
+})
