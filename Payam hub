@@ -3363,7 +3363,7 @@ BloxFruitTab:CreateButton({
     end
 })
 
-local FeAnimTab = Window:CreateTab("Fe Animation R15", 92496295326681) -- Using Animation icon ID
+local FeAnimTab = Window:CreateTab("Fe Animation R15-R6", 92496295326681) -- Using Animation icon ID
 
 -- 🏆 Bast Animation Section
 FeAnimTab:CreateSection("🏆 Bast Animation")
@@ -3543,10 +3543,6 @@ ChosenOneTab:CreateButton({
 -- Section بۆ Swim ON/OFF
 ComboTab:CreateSection("Swim Control")
 
--- لە دوای بەشی "Spin Control" لە ComboTab
--- Section بۆ Swim ON/OFF
-ComboTab:CreateSection("Swim Control")
-
 -- Swim ON/OFF
 local swimEnabled = false
 local swimConnection
@@ -3654,28 +3650,6 @@ ComboTab:CreateToggle({
     end
 })
 
--- Swim Speed Slider (سادە)
-local swimSpeed = 12
-ComboTab:CreateSlider({
-    Name = "Swim Speed",
-    Range = {5, 30},
-    Increment = 1,
-    CurrentValue = 12,
-    Callback = function(value)
-        swimSpeed = value
-        if swimEnabled then
-            local player = game.Players.LocalPlayer
-            local character = player.Character
-            if character then
-                local humanoid = character:FindFirstChildOfClass("Humanoid")
-                if humanoid then
-                    humanoid.WalkSpeed = swimSpeed
-                end
-            end
-        end
-    end
-})
-
 -- Bypass Chat Tab
 local BypassChatTab = Window:CreateTab("Bypass Chat", "home")  -- Chat bubble icon
 
@@ -3692,6 +3666,620 @@ BypassChatTab:CreateButton({
             Content = "Luarmor bypass chat loaded successfully!",
             Duration = 5,
             Image = "message-bubble"
+        })
+    end
+})
+
+-- 4. FE Ragdoll Script
+FeAnimTab:CreateButton({
+    Name = "FE Ragdoll Script R15",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/shakk-code/fe-ragdoll-script/refs/heads/main/script.lua', true))()
+        Rayfield:Notify({
+            Title = "FE Ragdoll Animation",
+            Content = "FE Ragdoll script loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- ==================== HUB-universal Tab ====================
+
+local HUBUniversalTab = Window:CreateTab("HUB-universal", 10966923565) -- Using Animation icon ID
+
+-- Create section for universal hubs
+HUBUniversalTab:CreateSection("Universal Hubs Collection")
+
+-- 1. Button 1
+HUBUniversalTab:CreateButton({
+    Name = "Universal Hub 1",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/YepimSirPwnsAlot/dfdsfsfewfe/refs/heads/main/xcscdscsdcs"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "Universal Hub 1 loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 2. coolkid hub
+HUBUniversalTab:CreateButton({
+    Name = "coolkid hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/VQD0M5vH", true))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "coolkid hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 3. ROB hub
+HUBUniversalTab:CreateButton({
+    Name = "ROB hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/KSvbtcPE"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "ROB hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 4. Altira hub
+HUBUniversalTab:CreateButton({
+    Name = "Altira hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/MxnvA12M/raw"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "Altira hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 5. KRWare Hub
+HUBUniversalTab:CreateButton({
+    Name = "KRWare Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/KRWareHub/KRWare/refs/heads/main/KRWare%20Hub%20Loader.lua"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "KRWare Hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 6. Solara Hub
+HUBUniversalTab:CreateButton({
+    Name = "Solara Hub",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/samuraa1/Solara-Hub/refs/heads/main/SH.lua'))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "Solara Hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 7. kvc hub
+HUBUniversalTab:CreateButton({
+    Name = "kvc hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Piw5bqGq"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "kvc hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- 8. RSC Hub
+HUBUniversalTab:CreateButton({
+    Name = "RSC Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gObl00x/My-Scripts/refs/heads/main/RSC%20Hub%20by%20gObl00x.lua"))()
+        Rayfield:Notify({
+            Title = "HUB-universal",
+            Content = "RSC Hub loaded!",
+            Duration = 3,
+            Image = "rbxassetid://10966923565"
+        })
+    end
+})
+
+-- لەبەشی "All Animation" لە FeAnimTab دوای Animation Hub R15
+-- 4. Fe Shadow Animation
+FeAnimTab:CreateButton({
+    Name = "Fe Shadow Animation R15",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/0QSkiaHL/raw"))()
+        Rayfield:Notify({
+            Title = "Fe Shadow Animation",
+            Content = "Fe Shadow animation loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- 6. Limb Reanim V2 (Universal Script + Epik R6 Dancezz)
+FeAnimTab:CreateButton({
+    Name = "Limb Reanim V2 (Universal + R6 and lag)",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Epik-R6-Dancezz-42246"))()
+        Rayfield:Notify({
+            Title = "Limb Reanim V2",
+            Content = "Universal Script with Limb Reanim V2 and Epik R6 Dancezz loaded!",
+            Duration = 5,
+            Image = 6023426926
+        })
+    end
+})
+
+-- Coolkid 2006 GUI - Full Code (Replace your old code with this)
+-- Place this inside Main1Tab
+
+Main1Tab:CreateSection("Coolkid 2006 GUI")
+
+local guiEnabled = false
+local coolkidGui = nil
+local currentPage = 1
+
+-- Features control
+local features = {
+    MessageSpam = false,
+    Music = false,
+    Laugh = false,
+    Night = false,
+    SixSixSix = false,
+    EpicSax = false,
+    Disco = false,
+    Theme2006 = false,
+    ForceField = false,
+    InfiniteJump = false,
+    Noclip = false
+}
+
+local soundInstances = {}
+local infiniteJumpConn = nil
+local noclipConn = nil
+
+Main1Tab:CreateToggle({
+    Name = "Coolkid 2006 GUI Show/Hide",
+    CurrentValue = false,
+    Callback = function(state)
+        guiEnabled = state
+        
+        if state then
+            if coolkidGui then
+                coolkidGui.Enabled = true
+                return
+            end
+
+            -- ==============================================
+            --               CREATE FULL GUI
+            -- ==============================================
+            local ScreenGui = Instance.new("ScreenGui")
+            ScreenGui.Name = "Coolkid2006GUI"
+            ScreenGui.ResetOnSpawn = false
+            ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+            coolkidGui = ScreenGui
+
+            local MainFrame = Instance.new("Frame")
+            MainFrame.Size = UDim2.new(0, 420, 0, 380)
+            MainFrame.Position = UDim2.new(0.5, -210, 0.5, -190)
+            MainFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 18)
+            MainFrame.Active = true
+            MainFrame.Draggable = true
+            MainFrame.Parent = ScreenGui
+
+            local corner = Instance.new("UICorner")
+            corner.CornerRadius = UDim.new(0, 14)
+            corner.Parent = MainFrame
+
+            -- Title
+            local title = Instance.new("TextLabel")
+            title.Size = UDim2.new(1, 0, 0, 55)
+            title.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+            title.Text = "COOLKID 2006 GUI"
+            title.TextColor3 = Color3.new(1,1,1)
+            title.Font = Enum.Font.GothamBlack
+            title.TextSize = 26
+            title.Parent = MainFrame
+
+            local titleCorner = Instance.new("UICorner")
+            titleCorner.CornerRadius = UDim.new(0, 14)
+            titleCorner.Parent = title
+
+            -- Page container
+            local pageContainer = Instance.new("Frame")
+            pageContainer.Size = UDim2.new(1, -20, 1, -100)
+            pageContainer.Position = UDim2.new(0, 10, 0, 65)
+            pageContainer.BackgroundTransparency = 1
+            pageContainer.Parent = MainFrame
+
+            -- Page 1: Main Features
+            local page1 = Instance.new("ScrollingFrame")
+            page1.Name = "Page1"
+            page1.Size = UDim2.new(1, 0, 1, 0)
+            page1.BackgroundTransparency = 1
+            page1.ScrollBarThickness = 5
+            page1.AutomaticCanvasSize = Enum.AutomaticSize.Y
+            page1.CanvasSize = UDim2.new(0,0,0,0)
+            page1.Visible = true
+            page1.Parent = pageContainer
+
+            local grid1 = Instance.new("UIGridLayout")
+            grid1.CellSize = UDim2.new(0, 120, 0, 55)
+            grid1.CellPadding = UDim2.new(0, 15, 0, 15)
+            grid1.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            grid1.Parent = page1
+
+            -- Page 2: Local Player
+            local page2 = Instance.new("ScrollingFrame")
+            page2.Name = "Page2"
+            page2.Size = UDim2.new(1, 0, 1, 0)
+            page2.BackgroundTransparency = 1
+            page2.ScrollBarThickness = 5
+            page2.AutomaticCanvasSize = Enum.AutomaticSize.Y
+            page2.CanvasSize = UDim2.new(0,0,0,0)
+            page2.Visible = false
+            page2.Parent = pageContainer
+
+            local grid2 = Instance.new("UIGridLayout")
+            grid2.CellSize = UDim2.new(0, 120, 0, 55)
+            grid2.CellPadding = UDim2.new(0, 15, 0, 15)
+            grid2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            grid2.Parent = page2
+
+            -- Navigation buttons
+            local nav = Instance.new("Frame")
+            nav.Size = UDim2.new(1, -20, 0, 40)
+            nav.Position = UDim2.new(0, 10, 1, -45)
+            nav.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+            nav.Parent = MainFrame
+
+            local backBtn = Instance.new("TextButton")
+            backBtn.Size = UDim2.new(0.45, 0, 1, 0)
+            backBtn.Position = UDim2.new(0, 0, 0, 0)
+            backBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+            backBtn.Text = "< BACK"
+            backBtn.TextColor3 = Color3.new(1,1,1)
+            backBtn.Font = Enum.Font.GothamBold
+            backBtn.TextSize = 18
+            backBtn.Visible = false
+            backBtn.Parent = nav
+
+            local nextBtn = Instance.new("TextButton")
+            nextBtn.Size = UDim2.new(0.45, 0, 1, 0)
+            nextBtn.Position = UDim2.new(0.55, 0, 0, 0)
+            nextBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+            nextBtn.Text = "NEXT >"
+            nextBtn.TextColor3 = Color3.new(1,1,1)
+            nextBtn.Font = Enum.Font.GothamBold
+            nextBtn.TextSize = 18
+            nextBtn.Parent = nav
+
+            -- Page switch logic
+            local function setPage(num)
+                currentPage = num
+                page1.Visible = (num == 1)
+                page2.Visible = (num == 2)
+                backBtn.Visible = (num > 1)
+                nextBtn.Visible = (num < 2)
+            end
+
+            backBtn.MouseButton1Click:Connect(function()
+                if currentPage > 1 then setPage(currentPage - 1) end
+            end)
+
+            nextBtn.MouseButton1Click:Connect(function()
+                if currentPage < 2 then setPage(currentPage + 1) end
+            end)
+
+            -- Toggle button creator function
+            local function makeToggle(name, key, parent, onFunc, offFunc)
+                local btn = Instance.new("TextButton")
+                btn.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+                btn.Text = name.."\nOFF"
+                btn.TextColor3 = Color3.fromRGB(220, 220, 220)
+                btn.Font = Enum.Font.GothamSemibold
+                btn.TextSize = 13
+                btn.TextWrapped = true
+                btn.Parent = parent
+
+                local c = Instance.new("UICorner")
+                c.CornerRadius = UDim.new(0, 10)
+                c.Parent = btn
+
+                local stroke = Instance.new("UIStroke")
+                stroke.Thickness = 1.8
+                stroke.Color = Color3.fromRGB(90, 90, 100)
+                stroke.Parent = btn
+
+                btn.MouseButton1Click:Connect(function()
+                    features[key] = not features[key]
+                    if features[key] then
+                        btn.BackgroundColor3 = Color3.fromRGB(0, 200, 80)
+                        btn.TextColor3 = Color3.new(1,1,1)
+                        btn.Text = name.."\nON"
+                        if onFunc then onFunc() end
+                    else
+                        btn.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+                        btn.TextColor3 = Color3.fromRGB(220, 220, 220)
+                        btn.Text = name.."\nOFF"
+                        if offFunc then offFunc() end
+                    end
+                end)
+            end
+
+            -- PAGE 1: Main Features + Spawn NPC button
+
+            makeToggle("Message Spam", "MessageSpam", page1, function()
+                spawn(function()
+                    while features.MessageSpam do
+                        task.wait(10)
+                        local m = Instance.new("Hint", workspace)
+                        m.Text = "1x1x1x1 WAS HERE! 2006 STYLE"
+                        task.wait(5); m:Destroy()
+                    end
+                end)
+            end)
+
+            makeToggle("Hacker Music", "Music", page1, function()
+                local s = Instance.new("Sound")
+                s.SoundId = "rbxassetid://27697743"
+                s.Volume = 0.7
+                s.Looped = true
+                s.Parent = workspace.CurrentCamera
+                s:Play()
+                table.insert(soundInstances, s)
+            end, function()
+                for _,s in pairs(soundInstances) do 
+                    if s.SoundId == "rbxassetid://27697743" then s:Stop() s:Destroy() end 
+                end
+            end)
+
+            makeToggle("Evil Laugh", "Laugh", page1, function()
+                local s = Instance.new("Sound")
+                s.SoundId = "rbxassetid://35935204"
+                s.Volume = 1
+                s.Looped = true
+                s.Parent = workspace.CurrentCamera
+                s:Play()
+                table.insert(soundInstances, s)
+            end, function()
+                for _,s in pairs(soundInstances) do 
+                    if s.SoundId == "rbxassetid://35935204" then s:Stop() s:Destroy() end 
+                end
+            end)
+
+            makeToggle("Permanent Night", "Night", page1, function()
+                spawn(function()
+                    while features.Night do
+                        game.Lighting.ClockTime = 0
+                        game.Lighting.Brightness = 0.15
+                        task.wait(1)
+                    end
+                end)
+            end)
+
+            makeToggle("666 Effect", "SixSixSix", page1, function()
+                -- Add 666 effect code here if you want
+            end)
+
+            makeToggle("Epic Sax", "EpicSax", page1, function()
+                local s = Instance.new("Sound")
+                s.SoundId = "rbxassetid://358776516"
+                s.Looped = true
+                s.Volume = 0.6
+                s.Parent = workspace.CurrentCamera
+                s:Play()
+                table.insert(soundInstances, s)
+            end, function()
+                for _,s in pairs(soundInstances) do 
+                    if s.SoundId == "rbxassetid://358776516" then s:Stop() s:Destroy() end 
+                end
+            end)
+
+            makeToggle("Disco Lights", "Disco", page1, function()
+                spawn(function()
+                    while features.Disco do
+                        game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
+                        task.wait(0.3)
+                    end
+                end)
+            end, function()
+                game.Lighting.Ambient = Color3.fromRGB(128,128,128)
+            end)
+
+            makeToggle("2006 Theme", "Theme2006", page1, function()
+                local s = Instance.new("Sound")
+                s.SoundId = "rbxassetid://1987072964"
+                s.Looped = true
+                s.Volume = 0.5
+                s.Parent = workspace.CurrentCamera
+                s:Play()
+                table.insert(soundInstances, s)
+            end, function()
+                for _,s in pairs(soundInstances) do 
+                    if s.SoundId == "rbxassetid://1987072964" then s:Stop() s:Destroy() end 
+                end
+            end)
+
+            makeToggle("ForceField", "ForceField", page1, function()
+                local char = game.Players.LocalPlayer.Character
+                if char and not char:FindFirstChildOfClass("ForceField") then
+                    Instance.new("ForceField", char)
+                end
+            end, function()
+                local char = game.Players.LocalPlayer.Character
+                if char then
+                    local ff = char:FindFirstChildOfClass("ForceField")
+                    if ff then ff:Destroy() end
+                end
+            end)
+
+            -- Special button: Spawn NPC 9x
+            local spawnNpcBtn = Instance.new("TextButton")
+            spawnNpcBtn.BackgroundColor3 = Color3.fromRGB(120, 0, 180)
+            spawnNpcBtn.Text = "Spawn NPC\n(9x)"
+            spawnNpcBtn.TextColor3 = Color3.new(1,1,1)
+            spawnNpcBtn.Font = Enum.Font.GothamBold
+            spawnNpcBtn.TextSize = 14
+            spawnNpcBtn.TextWrapped = true
+            spawnNpcBtn.Parent = page1
+
+            local npcCorner = Instance.new("UICorner")
+            npcCorner.CornerRadius = UDim.new(0, 10)
+            npcCorner.Parent = spawnNpcBtn
+
+            local npcStroke = Instance.new("UIStroke")
+            npcStroke.Thickness = 2.2
+            npcStroke.Color = Color3.fromRGB(200, 100, 255)
+            npcStroke.Parent = spawnNpcBtn
+
+            spawnNpcBtn.MouseButton1Click:Connect(function()
+                spawnNpcBtn.Text = "Spawning 9x..."
+                
+                for i = 1, 9 do
+                    task.spawn(function()
+                        loadstring(game:HttpGet("https://pastebin.com/raw/jdu75mKm"))()
+                    end)
+                end
+                
+                task.delay(1.5, function()
+                    if spawnNpcBtn and spawnNpcBtn.Parent then
+                        spawnNpcBtn.Text = "Spawn NPC\n(9x)"
+                    end
+                end)
+            end)
+
+            -- PAGE 2: Local Player Features
+            makeToggle("Infinite Jump", "InfiniteJump", page2, function()
+                infiniteJumpConn = game:GetService("UserInputService").JumpRequest:Connect(function()
+                    local char = game.Players.LocalPlayer.Character
+                    if char and char:FindFirstChild("Humanoid") then
+                        char.Humanoid:ChangeState("Jumping")
+                    end
+                end)
+            end, function()
+                if infiniteJumpConn then infiniteJumpConn:Disconnect() infiniteJumpConn = nil end
+            end)
+
+            makeToggle("Noclip", "Noclip", page2, function()
+                noclipConn = game:GetService("RunService").Stepped:Connect(function()
+                    local char = game.Players.LocalPlayer.Character
+                    if char then
+                        for _, part in pairs(char:GetDescendants()) do
+                            if part:IsA("BasePart") then
+                                part.CanCollide = false
+                            end
+                        end
+                    end
+                end)
+            end, function()
+                if noclipConn then noclipConn:Disconnect() noclipConn = nil end
+            end)
+
+            -- Walk Speed
+            local speedInput = Instance.new("TextBox")
+            speedInput.Size = UDim2.new(0, 120, 0, 55)
+            speedInput.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+            speedInput.Text = "Walk Speed (16)"
+            speedInput.TextColor3 = Color3.new(1,1,1)
+            speedInput.Font = Enum.Font.GothamBold
+            speedInput.TextSize = 14
+            speedInput.Parent = page2
+
+            local speedCorner = Instance.new("UICorner")
+            speedCorner.CornerRadius = UDim.new(0, 10)
+            speedCorner.Parent = speedInput
+
+            speedInput.FocusLost:Connect(function()
+                local val = tonumber(speedInput.Text)
+                if val then
+                    val = math.clamp(val, 1, 9999)
+                    local char = game.Players.LocalPlayer.Character
+                    if char and char:FindFirstChild("Humanoid") then
+                        char.Humanoid.WalkSpeed = val
+                    end
+                    speedInput.Text = tostring(val)
+                else
+                    speedInput.Text = "16"
+                end
+            end)
+
+            -- Jump Power
+            local jumpInput = Instance.new("TextBox")
+            jumpInput.Size = UDim2.new(0, 120, 0, 55)
+            jumpInput.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+            jumpInput.Text = "Jump Power (50)"
+            jumpInput.TextColor3 = Color3.new(1,1,1)
+            jumpInput.Font = Enum.Font.GothamBold
+            jumpInput.TextSize = 14
+            jumpInput.Parent = page2
+
+            local jumpCorner = Instance.new("UICorner")
+            jumpCorner.CornerRadius = UDim.new(0, 10)
+            jumpCorner.Parent = jumpInput
+
+            jumpInput.FocusLost:Connect(function()
+                local val = tonumber(jumpInput.Text)
+                if val then
+                    val = math.clamp(val, 1, 9999)
+                    local char = game.Players.LocalPlayer.Character
+                    if char and char:FindFirstChild("Humanoid") then
+                        char.Humanoid.JumpPower = val
+                    end
+                    jumpInput.Text = tostring(val)
+                else
+                    jumpInput.Text = "50"
+                end
+            end)
+
+            -- Start on Page 1
+            setPage(1)
+
+        else
+            if coolkidGui then
+                coolkidGui.Enabled = false
+                for k in pairs(features) do features[k] = false end
+                for _, s in pairs(soundInstances) do s:Stop() s:Destroy() end
+                soundInstances = {}
+                if infiniteJumpConn then infiniteJumpConn:Disconnect() end
+                if noclipConn then noclipConn:Disconnect() end
+            end
+        end
+    end
+})
+
+-- 4. R4D Revamp
+FeAnimTab:CreateButton({
+    Name = "R4D Revamp R15",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/R4D-Revamp/refs/heads/main/Official%20R4D%20Revamp'))()
+        Rayfield:Notify({
+            Title = "Fe Animation",
+            Content = "R4D Revamp animation loaded successfully!",
+            Duration = 5,
+            Image = 6023426926
         })
     end
 })
