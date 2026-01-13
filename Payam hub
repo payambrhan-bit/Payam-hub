@@ -4283,3 +4283,113 @@ FeAnimTab:CreateButton({
         })
     end
 })
+
+-- ==================== MM2 Tab ====================
+local MM2Tab = Window:CreateTab("MM2", 71121811939888) -- Using Murder Mystery 2 game icon ID
+
+-- Create section for MM2 scripts
+MM2Tab:CreateSection("Murder Mystery Scripts")
+
+-- Script 1: Universal Roblox MM2 Script
+MM2Tab:CreateButton({
+    Name = "MM2 Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/universal-roblox/Mm2/refs/heads/main/Murder-Mystery-2.lua"))()
+        Rayfield:Notify({
+            Title = "MM2 Script",
+            Content = "Universal MM2 script loaded successfully!",
+            Duration = 5,
+            Image = 11568361702
+        })
+    end
+})
+
+-- Script 2: Overdrive Hub (API)
+MM2Tab:CreateButton({
+    Name = "Overdrive Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yxkal999YT/api.overdrivehub.xyz/refs/heads/main/v3.lua", true))()
+        Rayfield:Notify({
+            Title = "MM2 Script",
+            Content = "Overdrive Hub loaded successfully!",
+            Duration = 5,
+            Image = 11568361702
+        })
+    end
+})
+
+-- Script 3: Kira Script (GlobalEXP)
+MM2Tab:CreateButton({
+    Name = "Kira Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://globalexp.xyz/"))()
+        Rayfield:Notify({
+            Title = "MM2 Script",
+            Content = "Kira script loaded successfully!",
+            Duration = 5,
+            Image = 11568361702
+        })
+    end
+})
+
+-- Build Your Boat Tab
+local BuildBoatTab = Window:CreateTab("Build Your Boat", 6026568198) -- Using boat icon ID
+
+-- Create section for Build Your Boat scripts
+BuildBoatTab:CreateSection("Build Your Boat Scripts Collection")
+
+-- Script 1: StensUIReMake - Boat Builder Hub
+BuildBoatTab:CreateButton({
+    Name = "Boat Builder Hub",
+    Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/catblox1346/StensUIReMake/refs/heads/main/Script/boatbuilderhub_B1"), true))()
+        Rayfield:Notify({
+            Title = "Build Your Boat",
+            Content = "Boat Builder Hub loaded successfully!",
+            Duration = 5,
+            Image = 6026568198
+        })
+    end
+})
+
+-- Script 2: Owl Hub
+BuildBoatTab:CreateButton({
+    Name = "Owl Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
+        Rayfield:Notify({
+            Title = "Build Your Boat",
+            Content = "Owl Hub loaded successfully!",
+            Duration = 5,
+            Image = 6026568198
+        })
+    end
+})
+
+-- Script 3: Auto Farm Gold
+BuildBoatTab:CreateButton({
+    Name = "Auto Farm Gold",
+    Callback = function()
+        loadstring(game:HttpGet("https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua"))()
+        Rayfield:Notify({
+            Title = "Build Your Boat",
+            Content = "Auto Farm Gold script loaded successfully!",
+            Duration = 5,
+            Image = 6026568198
+        })
+    end
+})
+
+-- Create information paragraph
+BuildBoatTab:CreateParagraph({
+    Title = "Build Your Boat Scripts Information",
+    Content = "This section contains scripts specifically for the 'Build Your Boat' game. Each script provides different features to enhance your gameplay experience."
+})
+
+-- Create tips section
+BuildBoatTab:CreateSection("Tips & Notes")
+
+BuildBoatTab:CreateParagraph({
+    Title = "Important Notes",
+    Content = "1. Boat Builder Hub: Modern UI with building tools\n2. Owl Hub: Comprehensive features for boat building\n3. Auto Farm Gold: Automated gold farming system\n\nRecommended: Try each script separately to see which works best!"
+})
